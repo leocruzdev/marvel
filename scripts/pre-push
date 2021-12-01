@@ -6,7 +6,7 @@ git stash -q --keep-index
 echo "Running git pre-push hook"
 
 # Format code using KtLint, then run KtLint static analysis
-./gradlew app:ktlint
+./gradlew app:ktlintCheck --daemon
 
 status=$?
 
