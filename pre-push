@@ -2,10 +2,15 @@
 
 echo "Running static analysis..."
 
+git stash -q --keep-index
+echo "Running git pre-push hook"
+
 # Format code using KtLint, then run KtLint static analysis
-./gradlew app:ktlint --daemon
+./gradlew app:ktlint
 
 status=$?
+
+git stash pop -q
 
 if [ "$status" = 0 ] ; then
     echo "Static analysis found no problems."
