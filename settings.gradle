@@ -1,3 +1,11 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+/**
+ *
+ * More info about RepositoriesMode https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/resolve/RepositoriesMode.html
+ *
+ * **/
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -5,5 +13,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "marvel"
-include ':app'
+
+include(':app')
