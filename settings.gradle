@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 }
 
 include(':app')
-include ':networking'
+include(':feature-home')
+include(':feature-home:home')
+include(':networking')

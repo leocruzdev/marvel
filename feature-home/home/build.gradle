@@ -1,0 +1,18 @@
+apply plugin: "com.android.library"
+apply from: "../../android-module.gradle"
+apply plugin: 'kotlin-android'
+
+android {
+    defaultConfig {
+        consumerProguardFiles "consumer-rules.pro"
+    }
+}
+
+dependencies {
+    implementation libraries.presentation.androidxKtx
+    implementation libraries.presentation.appCompat
+    implementation libraries.presentation.material
+    implementation libraries.presentation.constraintLayout
+
+    testImplementation libraries.test.androidxJunit
+}
