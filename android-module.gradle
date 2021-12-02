@@ -1,0 +1,26 @@
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion compileSDK
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        minSdk minSDK
+        targetSdk targetSDK
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+}

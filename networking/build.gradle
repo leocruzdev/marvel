@@ -1,0 +1,17 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlinx-serialization'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+}
+
+dependencies {
+    implementation libraries.data.retrofit
+    implementation libraries.data.ktxConverterFactory
+    implementation libraries.data.okhttp
+    implementation libraries.data.kotlinxSerializationJson
+}
