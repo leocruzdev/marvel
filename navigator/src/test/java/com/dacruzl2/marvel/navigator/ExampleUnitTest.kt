@@ -1,4 +1,4 @@
-package com.dacruzl2.marvel.home
+package com.dacruzl2.marvel.navigator
 
 import org.junit.Test
 
