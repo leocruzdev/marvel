@@ -33,7 +33,7 @@ class Navigator(
                 NavigationMode.OnlyMove -> {}
             }
 
-            //logger.d("keys being aggregated ${sending?.keySet()?.toList()} by ${host.javaClass.canonicalName}")
+            // logger.d("keys being aggregated ${sending?.keySet()?.toList()} by ${host.javaClass.canonicalName}")
             putParams(sending)
         }
 

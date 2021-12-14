@@ -7,10 +7,10 @@ import com.dacruzl2.marvel.character.list.R
 
 object MarvelTypography {
 
-   private val notoSansFontFamily = FontFamily(Font(R.font.roboto_condensed_bold))
+    private val notoSansFontFamily = FontFamily(Font(R.font.roboto_condensed_bold))
 
-   operator fun invoke() =
-       Typography(
-           defaultFontFamily = notoSansFontFamily
-       )
+    operator fun invoke() =
+        Typography(
+            defaultFontFamily = notoSansFontFamily
+        )
 }

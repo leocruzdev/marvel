@@ -5,7 +5,7 @@ import com.dacruzl2.marvel.character.list.domain.model.DomainUrl
 
 internal class UrlMapper {
 
-     fun toDomain(rawUrlList: List<RawUrl>): List<DomainUrl> =
+    fun toDomain(rawUrlList: List<RawUrl>): List<DomainUrl> =
         rawUrlList.map {
             DomainUrl(
                 type = it.type,

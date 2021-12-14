@@ -24,5 +24,3 @@ object MarvelColors {
             surface = primaryLightColor
         )
 }
-
-

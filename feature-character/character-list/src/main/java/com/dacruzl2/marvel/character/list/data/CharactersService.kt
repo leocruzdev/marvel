@@ -2,7 +2,6 @@ package com.dacruzl2.marvel.character.list.data
 
 import com.dacruzl2.marvel.character.list.data.response.BaseRawReponse
 import com.dacruzl2.marvel.character.list.data.response.RawCharacter
-import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Query
 

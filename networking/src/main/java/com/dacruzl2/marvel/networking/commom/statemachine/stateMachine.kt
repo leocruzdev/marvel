@@ -22,23 +22,22 @@ fun <T> stateMachine(
     dispatcher: CoroutineDispatcher = Dispatchers.Default,
     action: suspend () -> T
 ): Flow<StateMachineEvent<T>> = flow<StateMachineEvent<T>> { emit(Success(action())) }
-        .catch { exception ->
-            val error = exceptionsHandled
-                .map { it.handling(incoming = exception) }
-                .reduce { handledException, another ->
-                    when {
-                        handledException == another -> handledException
-                        another == exception -> handledException
-                        else -> another
-                    }
+    .catch { exception ->
+        val error = exceptionsHandled
+            .map { it.handling(incoming = exception) }
+            .reduce { handledException, another ->
+                when {
+                    handledException == another -> handledException
+                    another == exception -> handledException
+                    else -> another
                 }
+            }
 
-            emit(Failure(error))
-        }
-
-        .onStart { emit(Start) }
-        .onCompletion { emit(Finish) }
-        .flowOn(dispatcher)
+        emit(Failure(error))
+    }
+    .onStart { emit(Start) }
+    .onCompletion { emit(Finish) }
+    .flowOn(dispatcher)
 
 fun <T> Flow<T>.collectIn(
     scope: CoroutineScope,

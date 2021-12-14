@@ -16,4 +16,3 @@ fun AppCompatActivity.selfInject() = koinApplication {
     }
     loadKoinModules(hostScreen)
 }
-

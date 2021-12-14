@@ -2,7 +2,6 @@ package com.dacruzl2.marvel.networking.commom
 
 import java.math.BigInteger
 import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 fun md5Algorithm(privateKey: String, publickKey: String, timeStamp: Long): String {
     val md = MessageDigest.getInstance("MD5")
@@ -13,4 +12,3 @@ fun md5Algorithm(privateKey: String, publickKey: String, timeStamp: Long): Strin
         .toString(16)
         .padStart(32, '0')
 }
-

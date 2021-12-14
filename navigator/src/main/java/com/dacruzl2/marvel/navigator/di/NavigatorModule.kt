@@ -15,4 +15,3 @@ val navigatorModule by lazy {
         }
     }
 }
-

@@ -6,8 +6,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 object OkhttpBuilder {
 
     operator fun invoke() = with(OkHttpClient().newBuilder()) {
-            addInterceptor(HttpLoggingInterceptor().apply {
+        addInterceptor(
+            HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
-            }).build()
-        }
+            }
+        ).build()
+    }
 }

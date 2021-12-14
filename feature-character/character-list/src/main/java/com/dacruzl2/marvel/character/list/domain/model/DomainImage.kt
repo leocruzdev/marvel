@@ -4,5 +4,5 @@ data class DomainImage(
     val extension: String? = null,
     val path: String? = null
 ) {
-    operator fun invoke(): String = "${path}.${extension}"
+    operator fun invoke(): String = "$path.$extension"
 }

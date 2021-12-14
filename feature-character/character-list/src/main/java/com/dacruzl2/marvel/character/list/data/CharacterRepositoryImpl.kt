@@ -1,6 +1,5 @@
 package com.dacruzl2.marvel.character.list.data
 
-import kotlin.system.measureTimeMillis
 import com.dacruzl2.marvel.character.list.BuildConfig
 import com.dacruzl2.marvel.character.list.data.mapper.CharacterMapper
 import com.dacruzl2.marvel.character.list.domain.CharacterRepository
@@ -8,6 +7,7 @@ import com.dacruzl2.marvel.character.list.domain.model.DomainCharacter
 import com.dacruzl2.marvel.networking.commom.Util
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlin.system.measureTimeMillis
 
 internal class CharacterRepositoryImpl(
     private val service: CharactersService,

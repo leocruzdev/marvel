@@ -1,6 +1,5 @@
 package com.dacruzl2.marvel.networking.commom.statemachine
 
-
 sealed class StateMachineEvent<out T> {
 
     object Start : StateMachineEvent<Nothing>()

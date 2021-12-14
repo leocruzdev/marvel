@@ -12,4 +12,3 @@ sealed class NetworkingError : Throwable() {
             ConnectionSpike -> "In-flight networking operation interrupted"
         }
 }
-

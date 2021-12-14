@@ -4,7 +4,7 @@ sealed class RemoteIntegrationError : Throwable() {
     object ClientOrigin : RemoteIntegrationError()
     object RemoteSystem : RemoteIntegrationError()
     object UnexpectedResponse : RemoteIntegrationError()
-    object Test: RemoteIntegrationError()
+    object Test : RemoteIntegrationError()
 
     override fun toString() =
         when (this) {

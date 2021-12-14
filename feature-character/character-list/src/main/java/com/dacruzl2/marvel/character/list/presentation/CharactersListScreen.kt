@@ -59,7 +59,8 @@ fun MarvelTollbarPreview() {
 
 @Composable
 fun MarvelToolbar(onUpPress: () -> Unit) {
-    TopAppBar(backgroundColor = Color.Red,
+    TopAppBar(
+        backgroundColor = Color.Red,
         title = {
             Box(modifier = Modifier.fillMaxWidth()) {
                 Text(
