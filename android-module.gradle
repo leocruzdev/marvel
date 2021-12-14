@@ -1,0 +1,49 @@
+apply plugin: 'kotlin-android'
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+android {
+    compileSdkVersion compileSDK
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        minSdk minSDK
+        targetSdk targetSDK
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
+
+        buildConfigField "String", "PUBLIC_KEY", localProperties['PUBLIC_KEY']
+        buildConfigField "String", "PRIVATE_KEY", localProperties['PRIVATE_KEY']
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+        useIR = true
+    }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin/'
+    }
+}

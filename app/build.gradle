@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion compileSDK
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        applicationId "com.dacruzl2.marvel"
+        minSdk minSDK
+        targetSdk targetSDK
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            testCoverageEnabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(":feature-character:character-list")
+    implementation project(":commom-koin")
+    implementation project(":navigator")
+
+    implementation libraries.domain.kotlin
+    implementation libraries.domain.koinAndroid
+    implementation libraries.domain.coroutines
+
+    implementation libraries.presentation.androidxKtx
+    implementation libraries.presentation.appCompat
+    implementation libraries.presentation.material
+}

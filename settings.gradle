@@ -1,0 +1,30 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+/**
+ *
+ * More info about RepositoriesMode https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/resolve/RepositoriesMode.html
+ *
+ * **/
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = "marvel"
+
+include(
+        ':app',
+        ':feature-character',
+        ':feature-character:character-list',
+        ':networking',
+        ':navigator',
+        ':commom-android',
+        ':commom-koin',
+        ':rest-marvel'
+)
+
