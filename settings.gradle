@@ -11,10 +11,20 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
-include(':app')
-include(':feature-home')
-include(':feature-home:home')
-include(':networking')
+rootProject.name = "marvel"
+
+include(
+        ':app',
+        ':feature-character',
+        ':feature-character:character-list',
+        ':networking',
+        ':navigator',
+        ':commom-android',
+        ':commom-koin',
+        ':rest-marvel'
+)
+
