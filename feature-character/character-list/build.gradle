@@ -1,0 +1,52 @@
+apply plugin: "com.android.library"
+apply from: "../../android-module.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    defaultConfig {
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.1.0-alpha03"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":commom-android")
+    implementation project(":navigator")
+    implementation project(":networking")
+    implementation project(":rest-marvel")
+
+    implementation libraries.data.retrofit
+    implementation libraries.data.gson
+
+    implementation libraries.domain.koinAndroid
+    implementation libraries.domain.koinCompose
+    implementation libraries.domain.coroutines
+
+    implementation libraries.presentation.androidxKtx
+    implementation libraries.presentation.appCompat
+    implementation libraries.presentation.material
+    implementation libraries.presentation.constraintLayout
+    implementation libraries.presentation.activityKtx
+    implementation libraries.presentation.compose
+    implementation "com.github.skydoves:landscapist-coil:1.4.3"
+
+    testImplementation libraries.domain.coroutinesTest
+    testImplementation libraries.test.junit
+    testImplementation libraries.test.mockk
+    testImplementation libraries.test.androidxJunit
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+}
