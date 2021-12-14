@@ -1,6 +1,6 @@
 <h1 align="center">Marvel</h1></br>
 <p align="center">  
-A demo Marvel app using compose and Koin based on modern Android tech-stacks and MVVM architecture. Fetching data from the network and integrating data in the repository pattern.<br> Declarative UI version of the <a href="https://github.com/skydoves/DisneyMotions" target="_blank"> DisneyMotions </a> using compose.
+A demo Marvel app using compose and Koin based on modern Android tech-stacks and MVVM architecture. Fetching data from the network and integrating data in the repository pattern.<br> Declarative UI version using compose.
 </p>
 </br>
 
