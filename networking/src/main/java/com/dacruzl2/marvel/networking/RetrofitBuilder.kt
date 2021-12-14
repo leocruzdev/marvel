@@ -1,32 +1,16 @@
 package com.dacruzl2.marvel.networking
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    val parser by lazy {
-        Json {
-            allowSpecialFloatingPointValues = true
-            encodeDefaults = true
-            ignoreUnknownKeys = true
-            isLenient = true
-            useArrayPolymorphism = true
-        }
-    }
-
-    operator fun invoke(apiURL: String, httpClient: OkHttpClient): Retrofit =
+    inline operator fun <reified T> invoke(apiURL: String, oKhttpClient: OkHttpClient) =
         with(Retrofit.Builder()) {
             baseUrl(apiURL)
-            client(httpClient)
-            addConverterFactory(parser.asConverterFactory(contentType))
-            build()
+            client(oKhttpClient)
+            addConverterFactory((GsonConverterFactory.create()))
+            build().create(T::class.java)
         }
-
-    private val contentType by lazy {
-        "application/json".toMediaTypeOrNull()!!
-    }
 }

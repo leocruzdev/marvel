@@ -1,5 +1,4 @@
 apply plugin: 'kotlin'
-apply plugin: 'kotlinx-serialization'
 
 compileKotlin {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
@@ -11,7 +10,9 @@ compileTestKotlin {
 
 dependencies {
     implementation libraries.data.retrofit
-    implementation libraries.data.ktxConverterFactory
-    implementation libraries.data.okhttp
-    implementation libraries.data.kotlinxSerializationJson
+    implementation libraries.data.loggingInterceptor
+    implementation libraries.data.adapterRetrofit
+    implementation libraries.data.gson
+
+    implementation libraries.domain.coroutines
 }
