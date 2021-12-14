@@ -1,6 +1,5 @@
 buildscript {
     apply from: 'dependencies.gradle'
-
     repositories {
         google()
         mavenCentral()
@@ -9,8 +8,9 @@ buildscript {
 
     dependencies {
         classpath gradlePlugins.androidGradlePlugin
-        classpath gradlePlugins.kotlinPlugin
-        classpath gradlePlugins.ktlintPlugin
+        classpath gradlePlugins.kotlinGradlePlugin
+        classpath gradlePlugins.ktlintGradlePlugin
+        classpath gradlePlugins.kotlinxSerializationGradlePlugin
     }
 }
 

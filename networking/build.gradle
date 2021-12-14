@@ -1,0 +1,18 @@
+apply plugin: 'kotlin'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+}
+
+dependencies {
+    implementation libraries.data.retrofit
+    implementation libraries.data.loggingInterceptor
+    implementation libraries.data.adapterRetrofit
+    implementation libraries.data.gson
+
+    implementation libraries.domain.coroutines
+}

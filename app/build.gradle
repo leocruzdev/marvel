@@ -45,8 +45,14 @@ android {
 }
 
 dependencies {
+
+    implementation project(":feature-character:character-list")
+    implementation project(":commom-koin")
+    implementation project(":navigator")
+
     implementation libraries.domain.kotlin
     implementation libraries.domain.koinAndroid
+    implementation libraries.domain.coroutines
 
     implementation libraries.presentation.androidxKtx
     implementation libraries.presentation.appCompat
