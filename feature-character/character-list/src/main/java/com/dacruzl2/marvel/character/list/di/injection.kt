@@ -2,7 +2,7 @@ package com.dacruzl2.marvel.character.list.di
 
 import com.dacruzl2.marvel.character.list.data.CharacterRepositoryImpl
 import com.dacruzl2.marvel.character.list.data.CharactersService
-import com.dacruzl2.marvel.character.list.data.mapper.*
+import com.dacruzl2.marvel.character.list.data.mapper.BaseCharacterAttrsMapper
 import com.dacruzl2.marvel.character.list.data.mapper.CharacterMapper
 import com.dacruzl2.marvel.character.list.data.mapper.ImageMapper
 import com.dacruzl2.marvel.character.list.data.mapper.ItemMapper
@@ -13,7 +13,6 @@ import com.dacruzl2.marvel.character.list.presentation.CharactersListViewModel
 import com.dacruzl2.marvel.networking.OkhttpBuilder
 import com.dacruzl2.marvel.networking.RetrofitBuilder
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val charactersModule by lazy {
