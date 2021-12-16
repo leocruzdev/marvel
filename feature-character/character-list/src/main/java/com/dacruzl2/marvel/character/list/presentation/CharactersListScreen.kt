@@ -36,9 +36,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dacruzl2.marvel.character.list.R
-import com.dacruzl2.marvel.character.list.domain.model.DomainCharacter
-import com.dacruzl2.marvel.character.list.domain.model.DomainImage
-import com.dacruzl2.marvel.character.list.domain.model.DomainUrl
+import com.dacruzl2.marvel.character.list.presentation.model.ViewCharacter
+import com.dacruzl2.marvel.character.list.presentation.model.ViewImage
 import com.dacruzl2.marvel.character.list.theme.MarvelTheme
 import com.skydoves.landscapist.coil.CoilImage
 import org.koin.androidx.compose.getViewModel
@@ -151,7 +150,7 @@ fun DefaultIconTextContent(
 }
 
 @Composable
-fun CharactersList(list: List<DomainCharacter>, modifier: Modifier = Modifier) {
+fun CharactersList(list: List<ViewCharacter>, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         items(list) { item ->
             CharacterItem(item)
@@ -160,16 +159,16 @@ fun CharactersList(list: List<DomainCharacter>, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun CharacterItem(item: DomainCharacter, modifier: Modifier = Modifier) {
+private fun CharacterItem(item: ViewCharacter, modifier: Modifier = Modifier) {
     Box {
-        item.thumbnail?.let { NetworkImage(url = it) }
+        item.thumbnail?.let { NetworkImage(viewImage = it) }
         Text(
             text = item.name ?: "",
             fontSize = 32.sp,
             color = Color.White,
             modifier = Modifier
                 .align(
-                    if (item.thumbnail?.path?.contains("image_not_available") == true) {
+                    if (item.thumbnail?.url?.contains("image_not_available") == true) {
                         Alignment.Center
                     } else Alignment.BottomStart
                 )
@@ -182,18 +181,11 @@ private fun CharacterItem(item: DomainCharacter, modifier: Modifier = Modifier) 
 @Composable
 fun CharacterItemPreview() {
     MarvelTheme {
-        val item = DomainCharacter(
+        val item = ViewCharacter(
             name = "example1",
-            comics = null,
             description = "example2",
-            events = null,
             id = 0,
-            series = null,
-            stories = null,
             thumbnail = null,
-            urls = listOf<DomainUrl>(),
-            modified = "",
-            resourceURI = ""
         )
 
         CharacterItem(item)
@@ -202,10 +194,10 @@ fun CharacterItemPreview() {
 
 @Composable
 fun NetworkImage(
-    url: DomainImage
+    viewImage: ViewImage
 ) {
     CoilImage(
-        imageModel = url(),
-        previewPlaceholder = R.drawable.poster
+        imageModel = viewImage(),
+        previewPlaceholder = R.drawable.vision
     )
 }
