@@ -15,6 +15,7 @@ interface CharactersService {
         @Query("apikey") publicKey: String,
         @Query("hash") md5Digest: String,
         @Query("ts") timestamp: Long,
+        @Query("offset") offset: Int = 50,
         @Query("limit") limit: Int = 100
     ): BaseRawReponse<List<RawCharacter>>
 }

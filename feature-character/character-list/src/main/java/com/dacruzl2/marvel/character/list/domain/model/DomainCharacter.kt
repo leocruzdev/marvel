@@ -6,7 +6,7 @@ data class DomainCharacter(
     val description: String? = null,
     val modified: String? = null,
     val resourceURI: String? = null,
-    val thumbnail: DomainImage? = null,
+    val thumbnail: DomainImage?,
     val urls: List<DomainUrl>? = null,
     val stories: DomainStories? = null,
     val events: DomainEvents? = null,

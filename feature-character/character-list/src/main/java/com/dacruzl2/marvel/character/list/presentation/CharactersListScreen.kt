@@ -159,11 +159,7 @@ private fun CharacterItem(item: ViewCharacter, modifier: Modifier = Modifier) {
             fontSize = 32.sp,
             color = primaryTextColor,
             modifier = Modifier
-                .align(
-                    if (item.thumbnail?.url?.contains("image_not_available") == true) {
-                        Alignment.Center
-                    } else Alignment.BottomStart
-                )
+                .align(Alignment.Center)
                 .padding(16.dp)
         )
     }
