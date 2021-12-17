@@ -13,7 +13,6 @@ object HttpErrorHandling : ErrorHandler {
 
     private fun translateUsingStatusCode(code: Int) =
         when (code) {
-            404 -> RemoteIntegrationError.Test
             in 400..499 -> RemoteIntegrationError.ClientOrigin
             else -> RemoteIntegrationError.RemoteSystem
         }
