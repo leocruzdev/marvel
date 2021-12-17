@@ -3,7 +3,6 @@ package com.dacruzl2.marvel.character.list.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material.icons.twotone.Dns
-import androidx.compose.material.icons.twotone.SearchOff
 import androidx.compose.material.icons.twotone.SignalCellular0Bar
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.dacruzl2.marvel.character.list.R
@@ -24,10 +23,6 @@ data class ErrorStateResources(
                 is NetworkingError -> ErrorStateResources(
                     image = Icons.TwoTone.SignalCellular0Bar,
                     message = R.string.error_network
-                )
-                is RemoteIntegrationError.Test -> ErrorStateResources(
-                    image = Icons.TwoTone.SearchOff,
-                    message = R.string.error_no_results
                 )
                 else -> ErrorStateResources(
                     image = Icons.Outlined.BugReport,

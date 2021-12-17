@@ -4,7 +4,7 @@ import com.dacruzl2.marvel.character.list.domain.model.DomainCharacter as Domain
 import com.dacruzl2.marvel.character.list.presentation.model.ViewCharacter as ViewCharacter
 
 /**
- * Maps Tasks between Domain and View.
+ * Maps Character between Domain and View.
  */
 internal class CharacterMapper(private val viewImageMapper: ViewImageMapper) {
 

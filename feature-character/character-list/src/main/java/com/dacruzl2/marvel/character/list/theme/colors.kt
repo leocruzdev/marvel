@@ -2,27 +2,12 @@ package com.dacruzl2.marvel.character.list.theme
 
 import androidx.compose.ui.graphics.Color
 
-/**
- * Material design Blue 700 color.
- */
-val blue700 = Color(0xFF1976D2)
+val primaryColor = Color(0xFF424242)
+val primaryLightColor = Color(0xFF6D6D6D)
+val primaryDarkColor = Color(0xFF1B1B1B)
+val primaryTextColor = Color(0xFFFFFFFF)
 
-/**
- * Material design Blue 900 color.
- */
-val blue900 = Color(0xFF0D47A1)
-
-/**
- * Material design Blue Gray 400 color.
- */
-val blueGray400 = Color(0xFF78909C)
-
-/**
- * Material design Pink 300 color.
- */
-val pink300 = Color(0xFFF06292)
-
-/**
- * Material design Light Green 700 color.
- */
-val lightGreen700 = Color(0xFF689F38)
+val secondaryColor = Color(0xFFEC1D24)
+val secondaryLightColor = Color(0xFFFF5F4E)
+val secondaryDarkColor = Color(0xFFB10000)
+val secondaryTextColor = Color(0xFF000000)

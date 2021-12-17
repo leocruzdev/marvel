@@ -7,28 +7,22 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
-    primary = blue700,
-    primaryVariant = blue900,
-    secondary = pink300,
-    onSecondary = blueGray400
+    primary = primaryDarkColor,
+    primaryVariant = primaryColor,
+    secondary = secondaryDarkColor,
+    onSecondary = primaryTextColor
 )
 
 private val LightColorPalette = lightColors(
-    primary = blue700,
-    primaryVariant = blue900,
-    secondary = pink300,
-    onSecondary = blueGray400
+    primary = primaryLightColor,
+    primaryVariant = secondaryColor,
+    secondary = secondaryLightColor,
+    onSecondary = secondaryTextColor
 )
 
-/**
- * Alkaa main theme.
- *
- * @param darkTheme indicates if the application is in dark theme mode.
- * @param content composable function
- */
 @Composable
 fun MarvelTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) MarvelColors() else LightColorPalette
+    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
     MaterialTheme(
         colors = colors,

@@ -28,7 +28,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -39,6 +38,8 @@ import com.dacruzl2.marvel.character.list.R
 import com.dacruzl2.marvel.character.list.presentation.model.ViewCharacter
 import com.dacruzl2.marvel.character.list.presentation.model.ViewImage
 import com.dacruzl2.marvel.character.list.theme.MarvelTheme
+import com.dacruzl2.marvel.character.list.theme.primaryTextColor
+import com.dacruzl2.marvel.character.list.theme.secondaryColor
 import com.skydoves.landscapist.coil.CoilImage
 import org.koin.androidx.compose.getViewModel
 
@@ -47,25 +48,16 @@ internal fun CharactersSection(onUpPress: () -> Unit) {
     CharactersLoader(onUpPress = onUpPress)
 }
 
-@Suppress("UndocumentedPublicFunction")
-@Preview
-@Composable
-fun MarvelTollbarPreview() {
-    MarvelTheme {
-        MarvelToolbar(onUpPress = {})
-    }
-}
-
 @Composable
 fun MarvelToolbar(onUpPress: () -> Unit) {
     TopAppBar(
-        backgroundColor = Color.Red,
+        backgroundColor = secondaryColor,
         title = {
             Box(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "Marvel",
                     fontSize = 30.sp,
-                    color = Color.White,
+                    color = primaryTextColor,
                     modifier = Modifier.align(Alignment.Center)
                 )
 
@@ -74,7 +66,7 @@ fun MarvelToolbar(onUpPress: () -> Unit) {
                         Icon(
                             imageVector = Icons.Rounded.Close,
                             contentDescription = "",
-                            tint = Color.White,
+                            tint = primaryTextColor,
                         )
                     }
                 }
@@ -165,7 +157,7 @@ private fun CharacterItem(item: ViewCharacter, modifier: Modifier = Modifier) {
         Text(
             text = item.name ?: "",
             fontSize = 32.sp,
-            color = Color.White,
+            color = primaryTextColor,
             modifier = Modifier
                 .align(
                     if (item.thumbnail?.url?.contains("image_not_available") == true) {
@@ -177,7 +169,7 @@ private fun CharacterItem(item: ViewCharacter, modifier: Modifier = Modifier) {
     }
 }
 
-@Suppress("UndocumentedPublicFunction")
+@Preview
 @Composable
 fun CharacterItemPreview() {
     MarvelTheme {
@@ -189,6 +181,14 @@ fun CharacterItemPreview() {
         )
 
         CharacterItem(item)
+    }
+}
+
+@Preview
+@Composable
+fun MarvelTollbarPreview() {
+    MarvelTheme {
+        MarvelToolbar(onUpPress = {})
     }
 }
 

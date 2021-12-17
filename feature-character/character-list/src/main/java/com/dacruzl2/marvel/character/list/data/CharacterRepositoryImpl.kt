@@ -6,27 +6,25 @@ import com.dacruzl2.marvel.character.list.domain.CharacterRepository
 import com.dacruzl2.marvel.character.list.domain.model.DomainCharacter
 import com.dacruzl2.marvel.networking.commom.buildMd5AuthParameter
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlin.system.measureTimeMillis
+import kotlinx.coroutines.flow.flowOf
 
 internal class CharacterRepositoryImpl(
     private val service: CharactersService,
     private val mapper: CharacterMapper
 ) : CharacterRepository {
+    private val timeStamp by lazy { System.currentTimeMillis() }
 
-    override suspend fun getCharacters(): Flow<List<DomainCharacter>> = flow {
-        val timeStamp = measureTimeMillis {}
-
+    override suspend fun getCharacters(): Flow<List<DomainCharacter>> {
         val result = service.getCharacters(
-            BuildConfig.PUBLIC_KEY,
-            buildMd5AuthParameter(
-                timeStamp, BuildConfig.PRIVATE_KEY, BuildConfig.PUBLIC_KEY
+            publicKey = BuildConfig.PUBLIC_KEY,
+            md5Digest = buildMd5AuthParameter(
+                timeStamp,
+                BuildConfig.PRIVATE_KEY,
+                BuildConfig.PUBLIC_KEY
             ),
-            timeStamp,
-            null,
-            100
-        )
+            timestamp = timeStamp
+        ).let { resultRaw -> mapper.toDomain(resultRaw) }
 
-        emit(mapper.toDomain(result))
+        return flowOf(result)
     }
 }

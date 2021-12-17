@@ -4,7 +4,7 @@ import com.dacruzl2.marvel.character.list.domain.model.DomainImage as DomainImag
 import com.dacruzl2.marvel.character.list.presentation.model.ViewImage as ViewImage
 
 /**
- * Maps Tasks between Domain and View.
+ * Maps ImageCharacter between Domain and View.
  */
 internal class ViewImageMapper {
 
