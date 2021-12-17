@@ -15,8 +15,8 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField "String", "PUBLIC_KEY", localProperties['PUBLIC_KEY']
-        buildConfigField "String", "PRIVATE_KEY", localProperties['PRIVATE_KEY']
+        buildConfigField "String", "PUBLIC_KEY", "\"f197ef4b6cbf165647e2675250c1ce9d\""
+        buildConfigField "String", "PRIVATE_KEY", "\"3c33e65340cabf5d887f591dceb456e07f9269e7\""
     }
 
     buildTypes {
