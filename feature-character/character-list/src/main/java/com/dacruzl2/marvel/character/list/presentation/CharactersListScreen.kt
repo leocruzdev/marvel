@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -66,7 +67,7 @@ fun MarvelToolbar(onUpPress: () -> Unit) {
                         Icon(
                             imageVector = Icons.Rounded.Close,
                             contentDescription = "",
-                            tint = primaryTextColor,
+                            tint = primaryTextColor
                         )
                     }
                 }
@@ -80,7 +81,9 @@ internal fun CharactersLoader(viewModel: CharactersListViewModel = getViewModel(
     val data by remember { viewModel.getCharacters() }
         .collectAsState(initial = CharacterListViewState.Loading)
 
-    Scaffold(topBar = { MarvelToolbar(onUpPress = onUpPress) }) {
+    Scaffold(
+        topBar = { MarvelToolbar(onUpPress = onUpPress) }, backgroundColor = secondaryColor
+    ) {
         Crossfade(data) { state ->
             when (state) {
                 CharacterListViewState.Loading -> LoadingContent()
@@ -97,7 +100,12 @@ internal fun CharactersLoader(viewModel: CharactersListViewModel = getViewModel(
  */
 @Composable
 fun LoadingContent() {
-    Box(modifier = Modifier.fillMaxSize(), content = {})
+    Box(modifier = Modifier.fillMaxSize(), content = {
+        CircularProgressIndicator(
+            modifier = Modifier.align(Alignment.Center),
+            color = primaryTextColor
+        )
+    })
 }
 
 @Composable
@@ -165,6 +173,16 @@ private fun CharacterItem(item: ViewCharacter, modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun NetworkImage(
+    viewImage: ViewImage
+) {
+    CoilImage(
+        imageModel = viewImage(),
+        previewPlaceholder = R.drawable.vision
+    )
+}
+
 @Preview
 @Composable
 fun CharacterItemPreview() {
@@ -186,14 +204,4 @@ fun MarvelTollbarPreview() {
     MarvelTheme {
         MarvelToolbar(onUpPress = {})
     }
-}
-
-@Composable
-fun NetworkImage(
-    viewImage: ViewImage
-) {
-    CoilImage(
-        imageModel = viewImage(),
-        previewPlaceholder = R.drawable.vision
-    )
 }
