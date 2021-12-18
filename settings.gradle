@@ -25,6 +25,6 @@ include(
         ':navigator',
         ':commom-android',
         ':commom-koin',
-        ':rest-marvel'
+        ':commom-rest'
 )
 

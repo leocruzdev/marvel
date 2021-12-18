@@ -1,6 +1,6 @@
 package com.dacruzl2.marvel.character.list.data.mapper
 
-import com.dacruzl2.marvel.character.list.data.response.BaseRawReponse
+import com.dacruzl2.marvel.rest.BaseRawReponse
 import com.dacruzl2.marvel.character.list.data.response.RawCharacter
 import com.dacruzl2.marvel.character.list.domain.model.DomainCharacter
 

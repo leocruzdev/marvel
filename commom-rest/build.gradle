@@ -8,7 +8,6 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
 }
 
-
 dependencies {
     implementation libraries.data.gson
 }

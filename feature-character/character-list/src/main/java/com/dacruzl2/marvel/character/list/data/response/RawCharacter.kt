@@ -1,5 +1,6 @@
 package com.dacruzl2.marvel.character.list.data.response
 
+import com.dacruzl2.marvel.rest.BaseCharacterAttrs
 import com.google.gson.annotations.SerializedName
 
 typealias RawComics = BaseCharacterAttrs

@@ -1,4 +1,4 @@
-package com.dacruzl2.marvel.character.list.data.response
+package com.dacruzl2.marvel.rest
 
 import com.google.gson.annotations.SerializedName
 

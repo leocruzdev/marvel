@@ -1,6 +1,6 @@
 package com.dacruzl2.marvel.character.list.data.mapper
 
-import com.dacruzl2.marvel.character.list.data.response.RawItem
+import com.dacruzl2.marvel.rest.RawItem
 import com.dacruzl2.marvel.character.list.domain.model.DomainItem
 
 internal class ItemMapper {
