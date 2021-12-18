@@ -13,8 +13,6 @@ class Navigator(
     fun navigate(navigation: NavigationParametrization) = with(navigation) {
         val next = find(to)
 
-        // logger.d("redirected to $next")
-
         val intent = Intent(host, next).apply {
             when (mode) {
                 NavigationMode.Obliterate -> {
@@ -33,7 +31,6 @@ class Navigator(
                 NavigationMode.OnlyMove -> {}
             }
 
-            // logger.d("keys being aggregated ${sending?.keySet()?.toList()} by ${host.javaClass.canonicalName}")
             putParams(sending)
         }
 
@@ -47,7 +44,7 @@ class Navigator(
         try {
             params?.let(::putExtras)
         } catch (e: Throwable) {
-            // logger.e("Can't put params in the intent -> $e", e)
+
         }
     }
 }
