@@ -41,7 +41,7 @@ dependencies {
     implementation libraries.presentation.constraintLayout
     implementation libraries.presentation.activityKtx
     implementation libraries.presentation.compose
-    implementation "com.github.skydoves:landscapist-coil:1.4.3"
+    implementation libraries.presentation.landscapistCoil
 
     testImplementation libraries.domain.coroutinesTest
     testImplementation libraries.test.junit

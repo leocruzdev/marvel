@@ -18,7 +18,7 @@ ext {
     constraintLayoutVersion = '2.1.2'
     materialVersion = '1.4.0'
     composeVersion = '1.0.5'
-    coilVersion = '1.4.0'
+    landscapistCoilVersion = '1.4.3'
 
     // test
     truthVersion = '1.1.3'
@@ -82,7 +82,7 @@ ext {
                     material        : "com.google.android.material:material:${materialVersion}",
                     constraintLayout: "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
                     androidxKtx     : "androidx.core:core-ktx:${androidxCoreKtxVersion}",
-                    coil            : "io.coil-kt:coil-compose:${coilVersion}",
+                    landscapistCoil : "com.github.skydoves:landscapist-coil:${landscapistCoilVersion}",
                     kotlinReflect   : "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}",
                     activityKtx     : "androidx.activity:activity-ktx:${activityKtx}",
             ],
