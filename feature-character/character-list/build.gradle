@@ -46,7 +46,6 @@ dependencies {
     testImplementation libraries.domain.coroutinesTest
     testImplementation libraries.test.junit
     testImplementation libraries.test.mockk
-    testImplementation libraries.test.androidxJunit
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
     debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
 }
