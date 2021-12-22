@@ -16,7 +16,7 @@ internal class CharacterMapper(
         return rawDataContainer?.results?.map { toDomain(it) } ?: emptyList()
     }
 
-    private fun toDomain(rawCharacter: RawCharacter): DomainCharacter =
+    fun toDomain(rawCharacter: RawCharacter): DomainCharacter =
         DomainCharacter(
             id = rawCharacter.id ?: 0L,
             name = rawCharacter.name.orEmpty(),
