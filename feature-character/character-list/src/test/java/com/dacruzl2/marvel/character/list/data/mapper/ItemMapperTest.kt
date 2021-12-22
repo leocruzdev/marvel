@@ -16,8 +16,8 @@ internal class ItemMapperTest {
         )
 
         val expected = DomainItem(
-            name = "Avengers: The Initiative (2007) #14",
-            resourceURI = "http://gateway.marvel.com/v1/public/comics/21366"
+            name = rawItemResponse.name,
+            resourceURI = rawItemResponse.resourceURI
         )
 
         val result = ItemMapper().invoke(rawItem = rawItemResponse)
@@ -38,16 +38,9 @@ internal class ItemMapperTest {
 
         val rawListItemResponse = listOf(rawObject1, rawObject2)
 
-        val domainObject1 = DomainItem(
-            name = "Avengers: The Initiative (2007) #14",
-            resourceURI = "http://gateway.marvel.com/v1/public/comics/21366"
-        )
-        val domainObject2 = DomainItem(
-            name = "Avengers: The Initiative (2007) #14 (SPOTLIGHT VARIANT)",
-            resourceURI = "http://gateway.marvel.com/v1/public/comics/24571"
-        )
-
-        val expected = listOf(domainObject1, domainObject2)
+        val expected = rawListItemResponse.map { rawItem ->
+            DomainItem(name = rawItem.name, resourceURI = rawItem.resourceURI)
+        }
 
         val result = ItemMapper().invoke(rawListItem = rawListItemResponse)
 

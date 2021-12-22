@@ -20,16 +20,9 @@ internal class UrlMapperTest {
 
         val rawResponseList = listOf(rawObject1, rawObject2)
 
-        val domainObject1 = DomainUrl(
-            type = "detail",
-            url = "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=f197ef4b6cbf165647e2675250c1ce9d"
-        )
-        val domainObject2 = DomainUrl(
-            type = "wiki",
-            url = "http://marvel.com/universe/3-D_Man_(Chandler)?utm_campaign=apiRef&utm_source=f197ef4b6cbf165647e2675250c1ce9d"
-        )
-
-        val expected = listOf(domainObject1, domainObject2)
+        val expected = rawResponseList.map { rawUrl ->
+            DomainUrl(url = rawUrl.url, type = rawUrl.type)
+        }
 
         val result = UrlMapper().toDomain(rawUrlList = rawResponseList)
 

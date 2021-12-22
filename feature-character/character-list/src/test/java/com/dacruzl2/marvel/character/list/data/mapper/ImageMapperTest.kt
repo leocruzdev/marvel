@@ -12,8 +12,8 @@ internal class ImageMapperTest {
         val rawImageResponse = RawImage(path = "https://teste.com.br/image", extension = ".jpg")
 
         val expected = DomainImage(
-            path = "https://teste.com.br/image",
-            extension = ".jpg"
+            path = rawImageResponse.path,
+            extension = rawImageResponse.extension
         )
 
         val result = ImageMapper().invoke(rawImage = rawImageResponse)
@@ -29,11 +29,9 @@ internal class ImageMapperTest {
 
         val rawListImageResponse = listOf(rawObject1, rawObject2, rawObject3)
 
-        val domainObject1 = DomainImage(path = "https://teste.com.br/image1", extension = ".jpg")
-        val domainObject2 = DomainImage(path = "https://teste.com.br/image2", extension = ".jpg")
-        val domainObject3 = DomainImage(path = "https://teste.com.br/image3", extension = ".jpg")
-
-        val expected = listOf(domainObject1, domainObject2, domainObject3)
+        val expected = rawListImageResponse.map { rawImage ->
+            DomainImage(path = rawImage.path, extension = rawImage.extension)
+        }
 
         val result = ImageMapper().invoke(rawListImage = rawListImageResponse)
 
