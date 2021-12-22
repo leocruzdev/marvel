@@ -11,8 +11,8 @@ internal class ItemMapper {
             resourceURI = rawItem.resourceURI
         )
 
-    operator fun invoke(rawListComic: List<RawItem>): List<DomainItem> =
-        rawListComic.map {
+    operator fun invoke(rawListItem: List<RawItem>): List<DomainItem> =
+        rawListItem.map {
             invoke(it)
         }
 }
