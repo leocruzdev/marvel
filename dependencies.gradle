@@ -86,7 +86,7 @@ ext {
             ],
 
             test        : [
-                    junit: [
+                    junit5: [
                             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
                             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
                     ],
